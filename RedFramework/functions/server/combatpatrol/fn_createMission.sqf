@@ -16,6 +16,7 @@ while {_searchingKey} do {
 
 _missionID = _evalMissionID;
 
+diag_log ["create mission", _missionTarget];
 [
 	_missionTarget,
 	[_missionID, _missionParentID],

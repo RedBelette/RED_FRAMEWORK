@@ -14,6 +14,7 @@ if (isNil "_unitTypes") then {
 };
 
 _locationPos = call RF_fnc_locationGenerator;
+
 [_locationPos] call RF_fnc_spawnCirclePatrols;
 [_locationPos] call RF_fnc_spawnGarnisons;
 
@@ -37,9 +38,15 @@ waitUntil {!isNil "RF_fnc_spawnCirclePatrols"};
 
 _missionID = ["generatedMissionHelicopterInTown", blufor, "", localize "str_redMissionGenerator_mission1_title", localize "str_redMissionGenerator_mission1_description"] call RF_fnc_createMission;
 
-[[_vehicle, _missionID], {
+_marker = createMarker [_missionID, _locationPos];
+_marker setMarkerShape "ELLIPSE";
+_marker setMarkerSize [300, 300];
+_marker setMarkerColor "colorOPFOR";
+
+[[_vehicle, _missionID, _marker], {
 	_vehicle = _this select 0;
 	_missionID = _this select 1;
+	_marker = _this select 2;
 
 	[
 		_vehicle,
@@ -47,11 +54,13 @@ _missionID = ["generatedMissionHelicopterInTown", blufor, "", localize "str_redM
 		localize "str_redMissionGenerator_mission1_title",
 		localize "str_redMissionGenerator_mission1_progressbar",
 		{
-			_missionID = _this select 0;
+			_missionID = (_this select 0) select 0;
+			_marker = (_this select 0) select 1;
 			[_missionID] call RF_fnc_closeMission;
+			deleteMarker _marker;
 		},
 		{},
-		_missionID,
+		[_missionID, _marker],
 		5
 	] call RF_fnc_progressBar;
 

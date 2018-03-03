@@ -1,30 +1,36 @@
-_missionPaths = (getMissionConfig "RedFrameworkConfig" >> "MissionGenerator" >> "missionPaths") call  BIS_fnc_returnConfigEntry;
+_missionPathsConfig = (getMissionConfig "RedFrameworkConfig" >> "MissionGenerator" >> "missionPaths") call  BIS_fnc_returnConfigEntry;
 
 if (isNil "missionGeneratorExcludedPath") then {
 	missionGeneratorExcludedPath = ["new", []] call OO_HASHMAP;
 };
 
-_missionPathSelected = selectRandom _missionPaths;
-_missionPath = "";
-_replay = true;
-if (typeName _missionPathSelected == "ARRAY") then {
-	_missionPath = _missionPathSelected select 0;
-	_replay = (_missionPathSelected select 1) == "true";
-	_excluded = ["containsKey", _missionPath] call missionGeneratorExcludedPath;
-	_missionAvailable = (("size" call missionGeneratorExcludedPath) < (count _missionPaths));
-	diag_log ["missionGenerator", _replay, _excluded, _missionAvailable];
-	while {!_replay and _excluded and _missionAvailable} do
-	{
-		["put", [_missionPath, []]] call missionGeneratorExcludedPath;
-		call RF_fnc_missionGenerator;
-		return;
+_missionWithNoReplayArray = [];
+_missionPaths = [];
+{
+	if (typeName _x == "ARRAY") then {
+		_missionPath = (_x select 0);
+		_replay = (_x select 1) == "true";
+		_excluded = ["containsKey", _missionPath] call missionGeneratorExcludedPath;
+		if (_replay or (!_replay and !_excluded))  then {
+			_missionPaths pushBack _missionPath;
+			if (!_replay) then {
+				_missionWithNoReplayArray pushBack _missionPath;
+			};
+		};
+	} else {
+		_missionPaths pushBack _x;
 	};
-} else {
-	_missionPath = _missionPathSelected;
-};
+} forEach _missionPathsConfig;
 
-execVM _missionPath;
+_missionPathSelected = selectRandom _missionPaths;
+{
+	if (_missionPathSelected == _x) then {
+		["put", [_missionPathSelected, []]] call missionGeneratorExcludedPath;
+	};
+} forEach _missionWithNoReplayArray;
 
-_missionID = [_missionPath, false, "", "", ""] call RF_fnc_createMission;
+execVM _missionPathSelected;
+
+_missionID = [_missionPathSelected, false, "", "", ""] call RF_fnc_createMission;
 
 _missionID

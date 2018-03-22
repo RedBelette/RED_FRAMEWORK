@@ -47,6 +47,8 @@ class CfgFunctions {
 			class spawnUnits {};
 			class spawnGarnisons {};
 			class spawnCirclePatrols {};
+			class spawnByHeli {};
+			class startWithHeli{};
 		};
 		// ia
 		class iaCategory {

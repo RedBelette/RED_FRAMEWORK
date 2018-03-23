@@ -8,9 +8,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private title:string = "Red Framework";
-  private copyright:string = "Red Framework &copy; RedBelette 2018"
-  private paddingClass:string;
+  title:string = "Red Framework";
+  copyright:string = "Red Framework &copy; RedBelette 2018"
+  paddingClass:string;
 
   constructor(private location:Location, private router: ActivatedRoute) {}
 

@@ -14,7 +14,7 @@ import { Document } from '../document';
 })
 export class DocumentDetailComponent implements OnInit {
 
-  private document:Document;
+  document:Document;
 
   constructor(
     private activatedRoute:ActivatedRoute,

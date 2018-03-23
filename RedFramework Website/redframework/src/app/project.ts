@@ -3,7 +3,7 @@ import { Document } from './document';
 export class Project {
     id:string;
     name:string;
-    version:string;
+    currentVersion:string;
     description:string;
     documents:Document[];
 }

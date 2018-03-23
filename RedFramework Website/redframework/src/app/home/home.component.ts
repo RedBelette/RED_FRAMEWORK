@@ -9,7 +9,7 @@ import { AppComponent } from '../app.component';
 })
 export class HomeComponent implements OnInit {
 
-  private title:string;
+  title:string;
   
   constructor(private appComponent: AppComponent) { }
 

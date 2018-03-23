@@ -1,0 +1,22 @@
+<h1 class="text-center">Projects</h1>
+<p class="text-center">Click on the project to see documentations</p>
+
+<div class="content padding-32">
+    <nav class="text-left" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="active">Projects</li>
+        </ol>
+    </nav>
+
+    <div class="row">
+        <div class="projectwrapper col-sm-4" *ngFor="let project of projects">
+            <div class="project well" (click)="goToProjectDetail(project.id)">
+                <h3>{{ project.name }}</h3>
+                <em>Version {{ project.currentVersion }}</em>
+                <p class="text-left">{{ project.description }}</p>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-left"><button (click)="goBack()" class="btn">Go back to the previous page</button></p>
+</div>

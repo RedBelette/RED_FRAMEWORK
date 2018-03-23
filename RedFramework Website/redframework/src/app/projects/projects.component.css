@@ -1,0 +1,22 @@
+.project {
+    height: 250px;
+    margin: 15px 0px;
+    cursor: pointer;
+}
+
+.project em {
+    color: grey;
+    position: relative;
+    top: -7px;
+}
+
+.project p {
+    padding-top: 20px;
+}
+
+em.version {
+    display: block;
+    color: grey;
+    position: relative;
+    top: -7px;
+}

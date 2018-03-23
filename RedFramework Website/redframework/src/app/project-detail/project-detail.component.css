@@ -1,0 +1,33 @@
+.project {
+    padding-top:30px;
+    max-width: 920px;
+    margin: auto;
+    text-align: left;
+}
+
+.description {
+    width: 80%;
+    margin: auto;
+}
+
+.project .content {
+    cursor: pointer;
+}
+
+.project .content img {
+    max-width: 100%;
+    width: 100%;
+}
+
+.project .content p {
+    padding-top: 10px;
+    font-stretch: condensed;
+    text-align: justify;
+}
+
+em.version {
+    display: block;
+    color: grey;
+    position: relative;
+    top: -7px;
+}

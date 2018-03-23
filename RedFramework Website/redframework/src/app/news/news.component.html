@@ -1,0 +1,6 @@
+<h1 class="text-center">News</h1>
+<article class="well" *ngFor="let new of news">
+  <h3>{{ new.title }}</h3>
+  <em>Writting since {{ new.date }} by {{new.author}}</em>
+  <div class="html" [innerHtml]="new.html" ></div>
+</article>

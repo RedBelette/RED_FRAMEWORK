@@ -1,0 +1,47 @@
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+<h3 class="margin">GETTING STARTED</h3>
+<p>Last update: 06-01-2018</p>
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3">    
+    <div class="row">
+        <div class="col-sm-6">
+        <article class="margin">
+            <h3 id="demonstration">Demonstration</h3>
+            <p>A demonstration mission has been created to present you all the functions and help you understand how the framework works.
+            <br>You will find it on the <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=1230760053" target="_blank">steamworkshop</a>.</p>
+            <p>Then watch the video of this demo.</p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/f5IvsEXJuNU" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </article>
+        <article class="margin">
+            <h3 id="steamworkshop">Steamworkshop</h3>
+            <p>The easiest way to get an updated version of the framework and take it directly to the steamworkshop directly from <a href="http://steamcommunity.com/sharedfiles/filedetails/?id=1226877632" target="_blank">this link</a>.</p>
+        </article>
+        </div>
+        <div class="col-sm-6">
+        <article class="margin">
+            <h3 id="useoffunctions">Use of functions</h3>
+            <p>Functions can be used anywhere in your mission structure. Whether from the 3den editor or in your scripts outside the editor. 
+            <br>A good knowledge of mission editing in arma is required to use all the power of the framework without causing performance problems.
+            <br>Nevertheless, the framework is completely accessible to a beginner.</p>
+            <p>For example, copy the code below into the mission init and you will see the scenario title.</p>
+            <code>["My super mission", "by Me"] call RF_fnc_scenarioTitle;</code>
+        </article>
+            <article class="margin">
+                <h3 id="basicactionmecanism">Basic action mecanism</h3>
+                <p>Actions act as triggers. The actions are of 3 types:<br>
+                Simple action: <code>[_condition, _code] call RF_fnc_action;</code><br>
+                Delayed action: <code>[_condition, _code, _delay] call RF_fnc_delayedAction;</code><br>
+                Repeated action:<code>[_code, _time] call RF_fnc_repeatedAction;</code></p>
+                <p>Actions can be added to a share register. It will control your action, start it, stop it or resume in the case of a repeatedAction.<br>
+                Init register: <code>call RF_fnc_actionRegistry;</code><br>
+                Add action: <code>[_key, _action] call RF_fnc_addAction;</code><br>
+                Start action: <code>[_key] call RF_fnc_runAction;</code><br>
+                Stop action: <code>[_key] call RF_fnc_stopAction;</code><br>
+                </p>
+            </article>
+        </div>
+    </div>
+</div>

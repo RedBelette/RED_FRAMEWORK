@@ -2,7 +2,7 @@ if (!isServer) exitWith {};
 
 params ["_thisGroup"];
 
-diag_log ["Start RF_fnc_initHelico", _thisGroup];
+diag_log ["Start RF_fnc_heliInit", _thisGroup];
 
 _helicoSave = "";
 {
@@ -17,4 +17,4 @@ _helicoSave = "";
 
 } forEach units _thisGroup;
 
-diag_log ["End RF_fnc_initHelico"];
+diag_log ["End RF_fnc_heliInit"];

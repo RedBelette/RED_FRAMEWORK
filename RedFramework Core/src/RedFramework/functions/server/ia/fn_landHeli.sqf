@@ -4,7 +4,7 @@ params ["_helicoGroup", "_returnPos"];
 
 helicoBack = false;
 
-diag_log ["RF_fnc_landingHelico", _helicoGroup, _returnPos];
+diag_log ["RF_fnc_landHeli", _helicoGroup, _returnPos];
 
 while {(count (waypoints _helicoGroup)) > 0} do {
 	deleteWaypoint ((waypoints _helicoGroup) select 0);

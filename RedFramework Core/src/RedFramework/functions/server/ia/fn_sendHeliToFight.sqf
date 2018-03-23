@@ -4,7 +4,7 @@ params ["_helicoGroup", "_attackPos", "_radius"];
 
 helicoGo = false;
 
-diag_log ["RF_fnc_sendHelicoToFight", _helicoGroup, _attackPos, _radius];
+diag_log ["RF_fnc_sendHeliToFight", _helicoGroup, _attackPos, _radius];
 
 _helicoGroup setBehaviour "COMBAT";
 _helicoGroup setCombatMode "RED";

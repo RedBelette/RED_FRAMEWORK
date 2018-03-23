@@ -25,7 +25,7 @@ class CfgFunctions {
 
 		class initClientCategory {
 			file = "\RedFramework\functions\client\init";
-			class loadingFinished {};
+			class loadingComplete {};
 		};
 
 		// --- SERVER --- //
@@ -45,7 +45,7 @@ class CfgFunctions {
 		class spawnCategory {
 			file = "\RedFramework\functions\server\spawn";
 			class spawnUnits {};
-			class spawnGarnisons {};
+			class spawnGarrison {};
 			class spawnCirclePatrols {};
 			class spawnByHeli {};
 			class startWithHeli{};
@@ -54,16 +54,16 @@ class CfgFunctions {
 		class iaCategory {
 			file = "\RedFramework\functions\server\ia";
 			class sideDefendArea {};
-			class reddition {};
-			class sendHelicoToFight {};
-			class landingHelico {};
-			class initHelico {};
+			class makeSideSurrender {};
+			class sendHeliToFight {};
+			class landHeli {};
+			class heliInit {};
 		};
 		// curator
 		class curatorCategory {
 			file = "\RedFramework\functions\server\curator";
-			class makeAllUnitsEditableForAllCurator {};
-			class makeObjectsEditableForAllCurator {};
+			class makeAllUnitsEditableForAllCurators {};
+			class makeObjectsEditableForAllCurators {};
 		};
 		// combat patrol
 		class combatPatrolCategory {

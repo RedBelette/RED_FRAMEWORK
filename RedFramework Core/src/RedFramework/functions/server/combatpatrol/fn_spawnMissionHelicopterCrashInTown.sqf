@@ -20,7 +20,7 @@ _locationPos = call RF_fnc_locationGenerator;
 
 _calculatedPos = [_locationPos, random 300, random 360] call BIS_fnc_relPos;
 _vehicle = _helicopterClass createVehicle _calculatedPos;
-[[_vehicle]] call RF_fnc_makeObjectsEditableForAllCurator;
+[[_vehicle]] call RF_fnc_makeObjectsEditableForAllCurators;
 removeAllItems _vehicle;
 removeAllWeapons _vehicle;
 clearMagazineCargo _vehicle;

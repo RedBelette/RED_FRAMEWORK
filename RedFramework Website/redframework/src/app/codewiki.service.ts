@@ -16,16 +16,14 @@ export class CodewikiService {
   private apiProjectUrl = "api/projects";
   private apiDocumentsUrl = "api/documents";
   private apiNewsUrl = "api/news";
+  private apifunctionNamesUrl = "api/functionNames";
 
   constructor(
     private httpClient:HttpClient
   ) { }
 
   public getAllFunctionsNames(): Observable<string[]> {
-    let functions : string[] = [];
-    functions.push("RF_fnc_action");
-    functions.push("RF_fnc_delayedAction");
-    return of(functions);
+    return this.httpClient.get<string[]>(this.apifunctionNamesUrl);
   }
 
   public getProjects(): Observable<Project[]> {

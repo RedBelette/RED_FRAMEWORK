@@ -100,7 +100,16 @@ export class InMemoryDataService implements InMemoryDbService {
                 html: "<p>Our website is <u>underconstruction</u> and will be better in the future. I hope that the informations inside is helpful for you.<br>You will find all the documentation on the projects menu from the navigation bar.</p><p>Best regards.<br>RedBelette</p>"
             }
         ]; 
-        return {projects, documents, news};
+        const functionNames = [
+            "RF_fnc_actionRegistry",
+            "RF_fnc_action",
+            "RF_fnc_delayedAction",
+            "RF_fnc_repeatedAction",
+            "RF_fnc_addAction",
+            "RF_fnc_runAction",
+            "RF_fnc_stopAction"
+        ];
+        return {projects, documents, news, functionNames};
     }
 
 }

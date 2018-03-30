@@ -13,10 +13,12 @@ import { News } from './news';
 @Injectable()
 export class CodewikiService {
 
-  private apiProjectUrl = "api/projects";
-  private apiDocumentsUrl = "api/documents";
-  private apiNewsUrl = "api/news";
-  private apifunctionNamesUrl = "api/functionNames";
+  private apiProjectUrl = "http://localhost:8080/api/projects";
+  private apiProjectDetailUrl = "http://localhost:8080/api/project-detail";
+  private apiDocumentsUrl = "http://localhost:8080/api/documents";
+  private apiDocumentDetailUrl = "http://localhost:8080/api/document-detail";
+  private apiNewsUrl = "http://localhost:8080/api/news";
+  private apifunctionNamesUrl = "http://localhost:8080/api/functions-names";
 
   constructor(
     private httpClient:HttpClient
@@ -31,12 +33,12 @@ export class CodewikiService {
   }
 
   public getProject(id:string): Observable<Project> {
-    const url = `${this.apiProjectUrl}/${id}`;
+    const url = `${this.apiProjectDetailUrl}/${id}`;
     return this.httpClient.get<Project>(url);
   }
 
   public getDocument(id:string): Observable<Document> {
-    const url = `${this.apiDocumentsUrl}/${id}`;
+    const url = `${this.apiDocumentDetailUrl}/${id}`;
     return this.httpClient.get<Document>(url);
   }
 

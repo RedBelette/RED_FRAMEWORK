@@ -4,3 +4,7 @@ em.version {
     position: relative;
     top: -7px;
 }
+
+.row {
+    margin-bottom: 10px;
+}

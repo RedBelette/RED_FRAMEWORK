@@ -5,6 +5,6 @@ export class Document {
     name:string;
     project:Project;
     description:string;
-    html:string[];
+    htmls:string[];
     functions:Function[];
 }

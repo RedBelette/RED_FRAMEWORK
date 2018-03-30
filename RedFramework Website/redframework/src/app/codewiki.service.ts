@@ -13,12 +13,12 @@ import { News } from './news';
 @Injectable()
 export class CodewikiService {
 
-  private apiProjectUrl = "http://localhost:8080/api/projects";
-  private apiProjectDetailUrl = "http://localhost:8080/api/project-detail";
-  private apiDocumentsUrl = "http://localhost:8080/api/documents";
-  private apiDocumentDetailUrl = "http://localhost:8080/api/document-detail";
-  private apiNewsUrl = "http://localhost:8080/api/news";
-  private apifunctionNamesUrl = "http://localhost:8080/api/functions-names";
+  private apiProjectUrl = "http://vps176578.ovh.net:8080/api/projects";
+  private apiProjectDetailUrl = "http://vps176578.ovh.net:8080/api/project-detail";
+  private apiDocumentsUrl = "http://vps176578.ovh.net:8080/api/documents";
+  private apiDocumentDetailUrl = "http://vps176578.ovh.net:8080/api/document-detail";
+  private apiNewsUrl = "http://vps176578.ovh.net:8080/api/news";
+  private apifunctionNamesUrl = "http://vps176578.ovh.net:8080/api/functions-names";
 
   constructor(
     private httpClient:HttpClient

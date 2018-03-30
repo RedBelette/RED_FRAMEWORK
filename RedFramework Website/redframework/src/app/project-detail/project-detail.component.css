@@ -25,6 +25,10 @@
     text-align: justify;
 }
 
+.project .content .doc {
+    margin: 5px;
+}
+
 em.version {
     display: block;
     color: grey;

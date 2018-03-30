@@ -6,6 +6,7 @@ import { CodewikiService } from '../codewiki.service';
 
 import { AppComponent } from '../app.component';
 import { Project } from '../project';
+import { Document } from '../document';
 
 @Component({
   selector: 'app-project-detail',
@@ -15,6 +16,7 @@ import { Project } from '../project';
 export class ProjectDetailComponent implements OnInit {
 
   project:Project;
+  documentsRows:Array<Document[]> = []; // Bootstrap Grid Panel management
 
   constructor(
     private activatedRoute:ActivatedRoute,
@@ -29,6 +31,18 @@ export class ProjectDetailComponent implements OnInit {
     let projectId:string = this.activatedRoute.snapshot.paramMap.get("id");
     this.codewikiService.getProject(projectId).subscribe(project => {
       this.project = project;
+      // Bootstrap Grid Panel management
+      if (this.project.documents != null) {
+        let i = 0;
+        this.project.documents.forEach(d => {
+          if (i % 2 == 0) {
+            this.documentsRows.push([]);
+          }
+          this.documentsRows[this.documentsRows.length - 1].push(d);
+          i++;
+        });
+      }
+      
     });
   }
 

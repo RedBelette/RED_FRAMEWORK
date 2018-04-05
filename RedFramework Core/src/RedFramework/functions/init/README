@@ -1,0 +1,3 @@
+# Init
+This package contains function to use in the init.sqf or in the initServer;sqf. 
+By example, you have a function who detect when the loading is fully completed.

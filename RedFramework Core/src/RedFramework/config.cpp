@@ -10,114 +10,94 @@ class CfgPatches {
 class CfgFunctions {
 	class RF {
 
-		// --- CLIENT --- //
-		class textCategory {
-			file = "\RedFramework\functions\client\text";
-			class scenarioTitle {};
-		};
-
-		class uiCategory {
-			file = "\RedFramework\functions\client\ui";
-			class imageFullScreen {};
-			class imageInSky {};
-			class progressBar {};
-		};
-
-		class initClientCategory {
-			file = "\RedFramework\functions\client\init";
-			class loadingComplete {};
-		};
-
-		// --- SERVER --- //
-		// init
-		class initCategory {
-			file = "\RedFramework\functions\server\init";
-			class initFramework {
-				preInit = 1;
-			};
-		};
-		// ace
-		class aceCategory {
-			file = "\RedFramework\functions\server\ace";
+		class aceImprovements {
+			file = "\RedFramework\functions\ace_improvements";
 			class huntirSatellite {};
 		};
-		// spawn
-		class spawnCategory {
-			file = "\RedFramework\functions\server\spawn";
-			class spawnUnits {};
-			class spawnGarrison {};
-			class spawnCirclePatrols {};
-			class spawnByHeli {};
-			class startWithHeli{};
-		};
-		// ia
-		class iaCategory {
-			file = "\RedFramework\functions\server\ia";
-			class sideDefendArea {};
-			class makeSideSurrender {};
-			class sendHeliToFight {};
-			class landHeli {};
-			class heliInit {};
-		};
-		// curator
-		class curatorCategory {
-			file = "\RedFramework\functions\server\curator";
-			class makeAllUnitsEditableForAllCurators {};
-			class makeObjectsEditableForAllCurators {};
-		};
-		// combat patrol
-		class combatPatrolCategory {
-			file = "\RedFramework\functions\server\combatpatrol";
-			class missionGenerator {};
-			class createMission {};
-			class closeMission {};
-			class missionState {};
-			class isMissionClosed {};
-			class spawnMissionHelicopterCrashInTown {};
-		};
 
-		// --- BOTH CLIENT AND SERVER --- //
-
-		// converters
-		class converterCategory {
-			file = "\RedFramework\functions\both\converter";
-			class convertSideStr {};
-		};
-
-		// location
-		class locationCategory {
-			file = "\RedFramework\functions\both\location";
-			class locationGenerator {};
-			class locations {};
-		};
-
-		// actions
-		class triggerCategory {
-			file = "\RedFramework\functions\both\trigger";
-			// classic actions mode
+		class actionMechanism {
+			file = "\RedFramework\functions\action_mechanism";
 			class action {};
-			class delayedAction {};
-			class repeatedAction {};
-			// managed action mode
 			class actionRegistry {};
 			class addAction {};
+			class delayedAction {};
 			class getAction {};
+			class repeatedAction {};
 			class runAction {};
 			class stopAction {};
 			class unregisterAction {};
 		};
 
-		// search
-		class searchCategory {
-			file = "\RedFramework\functions\both\search";
-			class isPlayerNearEntity {};
-			class isInVehicle {};
+		class aiBehavior {
+			file = "\RedFramework\functions\ai_behavior";
+			class makeSideSurrender {};
+			class sideDefendArea {};
 		};
 
-		// anim
-		class animCategory {
-			file = "\RedFramework\functions\both\anim";
-			class playMoveLoop;
+		class animation {
+			file = "\RedFramework\functions\animation";
+			class playMoveLoop {};
+		};
+
+		class condition {
+			file = "\RedFramework\functions\condition";
+			class isInVehicle {};
+			class isPlayerNearEntity {};
+		};
+
+		class converter {
+			file = "\RedFramework\functions\converter";
+			class convertSideStr {};
+		};
+
+		class heliControl {
+			file = "\RedFramework\functions\heli_control";
+			class heliInit {};
+			class landHeli {};
+			class sendHeliToFight {};
+			class unloadUnitsWithHeli {};
+		};
+
+		class init {
+			file = "\RedFramework\functions\init";
+			class initFramework {
+				preInit = 1;
+			};
+			class loadingComplete {};
+		};
+
+		class missionGenerator {
+			file = "\RedFramework\functions\mission_generator";
+			class closeMission {};
+			class createMission {};
+			class isMissionClosed {};
+			class locationGenerator {};
+			class locations {};
+			class missionGenerator {};
+			class missionState {};
+			class spawnMissionHelicopterCrashInTown {};
+		};
+
+		class spawn {
+			file = "\RedFramework\functions\spawn";
+			class spawnByHeli {};
+			class spawnCirclePatrols {};
+			class spawnGarrison {};
+			class spawnUnits {};
+		}
+
+		class ui {
+			file = "\RedFramework\functions\ui";
+			class imageFullScreen {};
+			class imageInSky {};
+			class progressBar {};
+			class scenarioTitle {};
+		}
+
+		class zeus {
+			file = "\RedFramework\functions\zeus"
+			class makeAllUnitsEditableForAllCurators {};
+			class makeObjectsEditableForAllCurators {};
 		};
 	};
 };

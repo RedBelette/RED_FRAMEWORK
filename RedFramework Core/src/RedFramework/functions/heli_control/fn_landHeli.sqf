@@ -1,8 +1,20 @@
+/*
+* Function name / Nom de la fonction: RF_fnc_landHeli
+* Author / Auteur: RedBelette
+* Since version / Depuis la version: 1.0.0
+* Doc URL: http://www.redframework.com/project-detail/core
+*
+* EN:
+* Usage: Order the helicopter to land in the desired area.
+* Example: [_heliGroup, _returnPosition] call RF_fnc_landHeli;
+*
+* FR:
+* Utilisation: Ordonne à l'hélicoptère de se poser dans la zone souhaitée.
+* Exemple: [_heliGroup, _returnPosition] call RF_fnc_landHeli;
+*/
 if (!isServer) exitWith {};
 
 params ["_helicoGroup", "_returnPos"];
-
-helicoBack = false;
 
 diag_log ["RF_fnc_landHeli", _helicoGroup, _returnPos];
 

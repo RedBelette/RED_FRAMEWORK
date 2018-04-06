@@ -27,31 +27,31 @@ public class RedFrameworkApiController {
     @Autowired
     private RedFrameworkApiService codewikiService;
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin
     @RequestMapping(value="api/projects", method=RequestMethod.GET) 
     public ResponseEntity<List<ProjectDto>> getProjects()  {
         return ResponseEntity.ok(codewikiService.getProjects());
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin
     @RequestMapping(value="api/project-detail/{id}", method=RequestMethod.GET) 
     public ResponseEntity<ProjectDto> getProjectDetail(@PathVariable("id") String id)  {
         return ResponseEntity.ok(codewikiService.getProject(id));
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin
     @RequestMapping(value="api/document-detail/{id}", method=RequestMethod.GET) 
     public ResponseEntity<DocumentDetailDto> getDocumentDetail(@PathVariable("id") String id)  {
         return ResponseEntity.ok(codewikiService.getDocument(id));
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin
     @RequestMapping(value="api/functions-names", method=RequestMethod.GET) 
     public ResponseEntity<List<String>> getFunctionNames()  {
         return ResponseEntity.ok(codewikiService.getFunctionNames());
     }
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin
     @RequestMapping(value="api/news", method=RequestMethod.GET) 
     public ResponseEntity<List<NewsDto>> getNews()  {
         return ResponseEntity.ok(codewikiService.getNews());

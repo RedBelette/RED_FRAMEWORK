@@ -1,0 +1,6 @@
+# Action mechanism
+Trigger (by script) in arma are very useful but contain a lot of code to do something. 
+We need to create new paradigm to replace it and to enhanced the behavior. We need an 
+action mechanism. An action is to execute something when the condition is true. In 
+more we can specify if the action is a one shot or in a loop. Maybe you want that the 
+action is timed also. By creating a registry of action we can start and stop an action.

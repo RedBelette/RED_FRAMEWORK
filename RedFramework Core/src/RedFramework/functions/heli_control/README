@@ -1,0 +1,4 @@
+# Helicopter control
+The behavior of the IA can be strange when you want to control them. 
+The initialization of the helicopter for the crew to stay in ground and waiting for order. 
+You can send the helicopter to the fight and return to the landing area easily.

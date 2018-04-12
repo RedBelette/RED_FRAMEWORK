@@ -1,0 +1,3 @@
+# Converter
+The converter tools is useful if you want to convert a string to another arma object. 
+By example, we have a side converter who return the corresponding side, if the parameter is "west", west is the returned.

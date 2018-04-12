@@ -1,0 +1,4 @@
+# Mission generator engine
+This engine offer to you a complete engine to manage tasks and missions.
+You have a completer CRUD  fort the task to create, changing state, close or remove it. 
+You can also generate a random mission with a little configuration from description.ext.

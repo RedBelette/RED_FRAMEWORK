@@ -1,0 +1,3 @@
+# Animation
+The animation functions in arma are complicated to manage. We need to have functions to animate with more facilities. 
+Perhaps we need to loop an animation and we don't want to script something like "while (true) do animation". The animation part is **in progress** now.   

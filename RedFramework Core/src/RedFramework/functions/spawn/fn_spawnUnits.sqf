@@ -1,3 +1,17 @@
+/*
+* Function name / Nom de la fonction: RF_fnc_spawnUnits
+* Author / Auteur: RedBelette
+* Since version / Depuis la version: 1.0.0
+* Doc URL: http://www.redframework.com/project-detail/core
+*
+* EN:
+* Usage: Create units.
+* Example: [west, ["B_Soldier_F","B_Soldier_F","B_Soldier_F"], _spawnPos] call RF_fnc_spawnUnits;
+*
+* FR:
+* Utilisation: Créer des unités.
+* Exemple: [west, ["B_Soldier_F","B_Soldier_F","B_Soldier_F"], _spawnPos] call RF_fnc_spawnUnits;
+*/
 if (!isServer) exitWith {};
 
 params ["_side", "_unitTypes", "_spawnPos"];

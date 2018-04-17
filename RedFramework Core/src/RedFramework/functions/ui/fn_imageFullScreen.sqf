@@ -1,3 +1,17 @@
+/*
+* Function name / Nom de la fonction: RF_fnc_imageFullScreen
+* Author / Auteur: RedBelette
+* Since version / Depuis la version: 1.0.0
+* Doc URL: http://www.redframework.com/project-detail/core
+*
+* EN:
+* Usage: Displays an image in full screen for a given time.
+* Example: ["mypaa.paa", 10] call RF_fnc_imageFullScreen;
+*
+* FR:
+* Utilisation: Affiche une image en plein écran durant un temps donnée.
+* Exemple: ["mypaa.paa", 10] call RF_fnc_imageFullScreen;
+*/
 if (isServer and !hasInterface) exitWith {};
 
 params ["_imagePAA", "_time"];

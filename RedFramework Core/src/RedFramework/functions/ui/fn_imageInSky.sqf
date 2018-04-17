@@ -1,7 +1,18 @@
+/*
+* Function name / Nom de la fonction: RF_fnc_imageInSky
+* Author / Auteur: RedBelette
+* Since version / Depuis la version: 1.0.0
+* Doc URL: http://www.redframework.com/project-detail/core
+*
+* EN:
+* Usage: Displays an image in full screen in the sky during a given time.
+* Example: ["mypaa.paa", 10] call RF_fnc_imageInSky;
+*
+* FR:
+* Utilisation: Affiche une image en plein écran dans le ciel durant un temps donnée.
+* Exemple: ["mypaa.paa", 10] call RF_fnc_imageInSky;
+*/
 params ["_imagePath", ["_time", 5]];
-
-diag_log ["enter image in sky"];
-
 
 [_imagePath, _time] spawn {
 	diag_log ["enter image in sky on each client"];

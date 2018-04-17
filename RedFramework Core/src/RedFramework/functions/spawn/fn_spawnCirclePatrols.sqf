@@ -1,3 +1,17 @@
+/*
+* Function name / Nom de la fonction: RF_fnc_spawnCirclePatrols
+* Author / Auteur: RedBelette
+* Since version / Depuis la version: 1.0.0
+* Doc URL: http://www.redframework.com/project-detail/core
+*
+* EN:
+* Usage: Create patrols around an area based on the description.ext or parameters.
+* Example: call RF_fnc_spawnCirclePatrols;
+*
+* FR:
+* Utilisation: Créer des patrouilles autour d'une zone sur base du description.ext ou des paramètres.
+* Exemple: call RF_fnc_spawnCirclePatrols;
+*/
 params ["_modulePos", "_distanceRadius", "_side", "_unitTypes", "_radiusPatrols"];
 
 if (isNil "_distanceRadius") then {

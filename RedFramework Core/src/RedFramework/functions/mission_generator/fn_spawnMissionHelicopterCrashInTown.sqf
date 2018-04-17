@@ -1,3 +1,17 @@
+/*
+* Function name / Nom de la fonction: RF_fnc_spawnMissionHelicopterCrashInTown
+* Author / Auteur: RedBelette
+* Since version / Depuis la version: 1.0.0
+* Doc URL: http://www.redframework.com/project-detail/core
+*
+* EN:
+* Usage: Generates an example mission based on the condig file or past parameters.
+* Example: call RF_fnc_spawnMissionHelicopterCrashInTown;
+*
+* FR:
+* Utilisation: Génère une mission d'exemple sur base du fichier de condig ou des paramètres passées.
+* Exemple: call RF_fnc_missRF_fnc_spawnMissionHelicopterCrashInTownionState;
+*/
 params ["_side","_helicopterClass", "_unitTypes"];
 
 if (isNil "_side") then {

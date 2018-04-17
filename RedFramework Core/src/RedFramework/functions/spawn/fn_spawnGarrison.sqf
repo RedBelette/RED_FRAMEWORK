@@ -1,3 +1,17 @@
+/*
+* Function name / Nom de la fonction: RF_fnc_spawnGarrison
+* Author / Auteur: RedBelette
+* Since version / Depuis la version: 1.0.0
+* Doc URL: http://www.redframework.com/project-detail/core
+*
+* EN:
+* Usage: Create garrisons around an area based on the description.ext or parameters.
+* Example: call RF_fnc_spawnGarrison;
+*
+* FR:
+* Utilisation: Créer des garnisons autour d'une zone sur base du description.ext ou des paramètres.
+* Exemple: call RF_fnc_spawnGarrison;
+*/
 params ["_position", "_distanceGarnison", "_side", "_unitTypes", "_ramdomizeDistance"];
 
 if (isNil "_distanceGarnison") then {

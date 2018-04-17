@@ -14,11 +14,16 @@
 */
 params ["_heli", "_landingPos", "_getOutPos"];
 
+// Get driver crew.
 _crewGroup = group (driver _heli);
 
+// Add waypoint to landing position
 _waypoint = _crewGroup addWaypoint [_landingPos, 0];
+// Unload other groups
 _waypoint setWaypointType "TR UNLOAD";
+// Add waypoint to the out position
 _waypoint = _crewGroup addWaypoint [_getOutPos, 0];
+// Delete helicopter and crew when they arrived on position
 _waypoint setWaypointStatements ["true", "
 _heli = vehicle this;
 {

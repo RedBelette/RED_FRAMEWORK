@@ -14,8 +14,10 @@
 */
 params ["_key"];
 
+// We need calling RF_fnc_actionRegistry and RF_fnc_addAction first
 _trigger = [_key] call RF_fnc_getAction;
 
+// Clear the statements to desactivate the trigger
 _statements = ["","",""];
 
 _trigger setTriggerStatements _statements;

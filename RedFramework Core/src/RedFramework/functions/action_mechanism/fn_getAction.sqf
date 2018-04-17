@@ -16,11 +16,15 @@
 */
 params ["_key"];
 
+// We need calling RF_fnc_actionRegistry first
 _actionRegistry = missionNamespace getVariable "actionRegistry";
 
+// Check the existence of the key first
 _verifyKey = ["containsKey", _key] call _actionRegistry;
-if (!_verifyKey) throw "Invalid key";
+if (!_verifyKey) throw "Invalid key"; // and throw error
 
+// Retrieve the action
 _action = ["Get", _key] call _actionRegistry;
 
+// And return this one.
 _action

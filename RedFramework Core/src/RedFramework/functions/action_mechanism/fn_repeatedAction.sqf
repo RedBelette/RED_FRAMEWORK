@@ -15,9 +15,10 @@
 
 params ["_job", "_time"];
 
+// The same that RF_fnc_delayedAction 
 _trigger = createTrigger ["EmptyDetector", [0,0,0], false];
 _trigger setTriggerActivation ["NONE", "PRESENT", true];
-_trigger setTriggerStatements ["!(triggerActivated thisTrigger)", _job, ""];
-_trigger setTriggerTimeout [_time, _time, _time, true];
+_trigger setTriggerStatements ["!(triggerActivated thisTrigger)", _job, ""]; // With this instruction in more. This instruction create the loop
+_trigger setTriggerTimeout [_time, _time, _time, true]; 
 
 _trigger

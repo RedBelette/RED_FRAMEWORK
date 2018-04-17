@@ -16,11 +16,12 @@
 */
 params ["_missionID", "_missionTarget", "_missionParentID", "_missionTitle", "_missionDescription", ["_missionTaskType", "default"], ["_missionTaskDestination", objNull], ["_missionTaskSetCurrent", false], ["_missionTaskPriority", 0], ["_missionNotification", true], ["_missionTaskSharing", false]];
 
-
+// Create map if it doesnt exist
 if (isNil "missionRegistryMap") then {
 	missionRegistryMap = ["new", []] call OO_HASHMAP;
 };
 
+// Generate an unique missionID
 _evalMissionID = nil;
 _number = 0;
 _searchingKey = true;
@@ -32,7 +33,7 @@ while {_searchingKey} do {
 
 _missionID = _evalMissionID;
 
-diag_log ["create mission", _missionTarget];
+// Create the mission task
 [
 	_missionTarget,
 	[_missionID, _missionParentID],
@@ -45,7 +46,9 @@ diag_log ["create mission", _missionTarget];
 	_missionTaskSharing
 ] call BIS_fnc_taskCreate;
 
+// Store the mission task to the register with the missionID as a key
 _missionParams = [];
 ["Put", [_missionID, _missionParams]] call missionRegistryMap;
 
+// Return the missionID
 _missionID

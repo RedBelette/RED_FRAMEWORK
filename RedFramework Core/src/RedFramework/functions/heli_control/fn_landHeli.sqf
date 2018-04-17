@@ -16,17 +16,19 @@ if (!isServer) exitWith {};
 
 params ["_helicoGroup", "_returnPos"];
 
-diag_log ["RF_fnc_landHeli", _helicoGroup, _returnPos];
-
+// Delete all waypoints of the helicopters
 while {(count (waypoints _helicoGroup)) > 0} do {
 	deleteWaypoint ((waypoints _helicoGroup) select 0);
 };
 
+// Stay cool
 _helicoGroup setBehaviour "CARELESS";
 _helicoGroup setCombatMode "BLUE";
 
+// Add waypoint for return position
 _helicoGroup addWaypoint [_returnPos,0];
 
+// Do not execute more than one by helicopter
 _helicoSave = "";
 _helicos = [];
 {
@@ -37,29 +39,17 @@ _helicos = [];
 
 } forEach units _helicoGroup;
 
-{
+{ // For each helicopter
 	_heli = _x;
 
-	[_heli, _returnPos] spawn {
+	[_heli, _returnPos] spawn { // Create a process by helicopter
 		_heli = _this select 0;
 		_returnPos = _this select 1;
-
-		diag_log ["Landing by plane", _heli, _returnPos, str(alive _heli and (_heli distance _returnPos) < 300)];
-
-		while {alive _heli and (_heli distance _returnPos) > 300} do {};
-
-		diag_log ["Landing", _heli, _returnPos, _heli distance _returnPos];
-
-		sleep random 30;
-
-		_heli land "LAND";
-
-		while {alive _heli and !isTouchingGround _heli} do {};
-
-		diag_log ["stop Fueld", _heli, _returnPos];
+		while {alive _heli and (_heli distance _returnPos) > 300} do {}; // Wait that the helicopter are in position
+		sleep random 30; // Sleep random is necessary to prevent helicopters crash
+		_heli land "LAND"; // Land to position
+		while {alive _heli and !isTouchingGround _heli} do {}; // Wait that the helicopter touching grounds to setFuel 0
 		_heli setFuel 0;
-
-		diag_log ["Landing by plane end", _heli, _returnPos, str(alive _heli and (_heli distance _returnPos) < 300)];
 	};
 
 } forEach _helicos;

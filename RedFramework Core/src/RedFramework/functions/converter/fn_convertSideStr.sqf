@@ -14,6 +14,7 @@
 */
 params ["_side"];
 
+// Switch case is easy to understand
 switch (_side) do
 {
 	case "east":

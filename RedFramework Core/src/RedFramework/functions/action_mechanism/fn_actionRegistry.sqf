@@ -13,10 +13,14 @@
 * Exemple: call RF_fnc_actionRegistry
 */
 
+// A hashmap is a classic Oriented Object data storage. Very useful to manage registry.
+// We can store what ever we want and access them by a key.
 _actionRegistryMap = ["new", []] call OO_HASHMAP;
 
+// TODO: Store data on addonnamespace. 
 missionNamespace setVariable ["actionRegistry", _actionRegistryMap];
 
+// This second registry store the condition and the condition may be restore when the action resume.
 _actionConditionRegistryMap = ["new", []] call OO_HASHMAP;
 
 missionNamespace setVariable ["actionConditionRegistryMap", _actionConditionRegistryMap];

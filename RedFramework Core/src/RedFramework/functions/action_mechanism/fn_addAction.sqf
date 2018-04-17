@@ -16,14 +16,17 @@
 */
 params ["_key","_action"];
 
+// We need calling RF_fnc_actionRegistry first
 _actionRegistry = missionNamespace getVariable "actionRegistry";
 
+// Check the existence of the key first
 _verifyKey = ["containsKey", _key] call _actionRegistry;
-if (_verifyKey) throw "key already exist";
+if (_verifyKey) throw "key already exist"; // and throw error
 
-
+// Put the action with the desired key into the register
 ["Put", [_key, _action]] call _actionRegistry;
 
 _actionConditionRegistryMap = missionNamespace getVariable "actionConditionRegistryMap";
 
+// And store also the condition.
 ["Put", [_key, triggerStatements _action]] call _actionConditionRegistryMap;

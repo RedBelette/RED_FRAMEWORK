@@ -12,8 +12,11 @@
 * Utilisation: Retourne une location au hasard de la carte.
 * Exemple: call RF_fnc_locationGenerator;
 */
+
+// Get all cities of the map
 _locations = call RF_fnc_locations;
-_randomLocation = _locations select (random (count _locations));
+_randomLocation = _locations select (random (count _locations)); // get random
 _locationPos = getPos _randomLocation;
 
+// return position
 _locationPos

@@ -14,10 +14,12 @@
 */
 params ["_key"];
 
+// We need calling RF_fnc_actionRegistry and RF_fnc_addAction first
 _trigger = [_key] call RF_fnc_getAction;
 
 _actionConditionRegistryMap = missionNamespace getVariable "actionConditionRegistryMap";
 
+// Retrieve the statement and assign this one to the trigger.
 _statements = ["Get", _key] call _actionConditionRegistryMap;
 
 _trigger setTriggerStatements _statements;

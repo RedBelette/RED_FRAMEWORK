@@ -15,13 +15,16 @@
 
 params ["_key"];
 
+// We need calling RF_fnc_actionRegistry and RF_fnc_addAction first
 _actionRegistry = missionNamespace getVariable "actionRegistry";
 
+// Check the existence of the key first
 _verifyKey = ["containsKey", _key] call _actionRegistry;
-if (!_verifyKey) throw "Invalid key";
+if (!_verifyKey) throw "Invalid key"; // and throw error
 
+// Remove the action
 ["Remove", _key] call _actionRegistry;
 
 _actionConditionRegistryMap = missionNamespace getVariable "actionConditionRegistryMap";
-
+// And condition
 ["Remove", [_key]] call _actionConditionRegistryMap;

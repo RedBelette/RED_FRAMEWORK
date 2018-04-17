@@ -14,11 +14,14 @@
 */
 params ["_missionID"];
 
+// get the mission state
 _type = [_missionID] call RF_fnc_missionState;
 
+// the mission is close when it's succeeded, failed or canceled
 _isMissionClosed = false;
 if (_type == 'Succeeded' or _type == 'Failed' or _type == 'Canceled') then {
 	_isMissionClosed = true;
 };
 
+// return true when mission closed
 _isMissionClosed

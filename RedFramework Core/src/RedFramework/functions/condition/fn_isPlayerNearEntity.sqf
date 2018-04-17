@@ -15,9 +15,11 @@
 params ["_entity", "_radius"];
 
 _found = false;
+// nearEntities check all entities around entity. An entity is all type of arma objects.
 _entities = _entity nearEntities _radius;
 
 {
+	// Check if the entity is a player
 	if (isPlayer _x) then {
 		_found = true;
 	};

@@ -16,7 +16,8 @@
 params ["_condition", "_job"];
 
 _trigger = createTrigger ["EmptyDetector", [0,0,0], false];
-_trigger setTriggerActivation ["NONE", "PRESENT", false];
+_trigger setTriggerActivation ["NONE", "PRESENT", false]; // The condition replace the basic trigger activation
 _trigger setTriggerStatements [_condition, _job, ""];
 
+// The trigger is return if the user want make something more specific
 _trigger

@@ -12,12 +12,18 @@
 * Utilisation: Génère une mission aléatoire sur base du description.ext.
 * Exemple: call RF_fnc_missionGenerator;
 */
+
+// get all the mission paths by the description.ext
 _missionPathsConfig = (getMissionConfig "RedFrameworkConfig" >> "MissionGenerator" >> "missionPaths") call  BIS_fnc_returnConfigEntry;
 
+// create the registry when it's not already created
 if (isNil "missionGeneratorExcludedPath") then {
 	missionGeneratorExcludedPath = ["new", []] call OO_HASHMAP;
 };
 
+// Separe the mission who can be looped or not. 
+// Create by script can be looped.
+// Create by 3den cannot be looped at this time.
 _missionWithNoReplayArray = [];
 _missionPaths = [];
 {

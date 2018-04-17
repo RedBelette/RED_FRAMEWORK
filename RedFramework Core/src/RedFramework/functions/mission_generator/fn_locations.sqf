@@ -12,7 +12,12 @@
 * Utilisation: Retourne l'ensemble des villes de la carte.
 * Exemple: call RF_fnc_locations;
 */
+
+// Instruction to retrieve the center of the map to combine with worldSize to have the maximum radius
 _centerOfTheWorld = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+
+// get all the locations 
 _locations = nearestLocations [_centerOfTheWorld, ["NameVillage", "NameCity", "NameCityCapital"], worldSize];
 
+// return all the location
 _locations

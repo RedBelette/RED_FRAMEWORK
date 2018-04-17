@@ -16,8 +16,6 @@ if (!isServer) exitWith {};
 
 params ["_side", "_unitTypes", "_spawnPos"];
 
-diag_log ["RF_fnc_spawnUnits", _side, _unitTypes, _spawnPos];
-
 _group1 = createGroup _side;
 
 _count = (count _unitTypes) - 1;

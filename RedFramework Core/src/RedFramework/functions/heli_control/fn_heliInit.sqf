@@ -16,19 +16,14 @@ if (!isServer) exitWith {};
 
 params ["_thisGroup"];
 
-diag_log ["Start RF_fnc_heliInit", _thisGroup];
-
+// execute the desactivation of the helicopter once.
 _helicoSave = "";
 {
-	diag_log ["check _x", _x, "check vehicle _x", vehicle _x];
 	if !(_helicoSave isEqualTo (vehicle _x)) then {
 		_helicoSave = vehicle _x;
-		_helicoSave setFuel 0;
-		_helicoSave setBehaviour "CARELESS";
-		_helicoSave setCombatMode "BLUE";
-		diag_log ["helico set fuel to 0, behaviour careless and combatMode blue", _helicoSave, "for _x", _x];
+		_helicoSave setFuel 0; // No full
+		_helicoSave setBehaviour "CARELESS"; // Stay cool if ennemy approach
+		_helicoSave setCombatMode "BLUE"; // Same
 	};
 
 } forEach units _thisGroup;
-
-diag_log ["End RF_fnc_heliInit"];

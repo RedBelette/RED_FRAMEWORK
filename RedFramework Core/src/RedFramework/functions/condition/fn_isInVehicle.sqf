@@ -15,6 +15,7 @@
 params["_unit"];
 
 _inVehicle = false;
+// vehicle _unit != _unit => something strange ... check if the player is inside vehicle
 if (vehicle _unit != _unit) then {
 	_inVehicle = true;
 };

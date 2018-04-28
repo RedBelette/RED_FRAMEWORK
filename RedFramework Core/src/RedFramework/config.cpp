@@ -99,5 +99,11 @@ class CfgFunctions {
 			class makeAllUnitsEditableForAllCurators {};
 			class makeObjectsEditableForAllCurators {};
 		};
+
+		class layer {
+			file = "\RedFramework\functions\layer"
+			class disableLayer {};
+			class enableLayer {};
+		};
 	};
 };

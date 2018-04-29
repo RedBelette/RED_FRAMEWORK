@@ -16,7 +16,7 @@ params ["_position", "_distanceGarnison", "_side", "_unitTypes", "_ramdomizeDist
 
 // Get the configuration from description.ext when no parameters
 if (isNil "_distanceGarnison") then {
-	_distanceGarnison = (getMissionConfig "RedFrameworkConfig" >> "combatPatrol_SpawnGarnisons" >> "distance") call  BIS_fnc_returnConfigEntry;
+	_distanceGarnison = (getMissionConfig "RedFrameworkConfig" >> "combatPatrol_SpawnGarrison" >> "distance") call  BIS_fnc_returnConfigEntry;
 };
 
 if (isNil "_side") then {
@@ -25,11 +25,11 @@ if (isNil "_side") then {
 };
 
 if (isNil "_unitTypes") then {
-	_unitTypes = (getMissionConfig "RedFrameworkConfig" >> "combatPatrol_SpawnGarnisons" >> "unitTypes") call BIS_fnc_returnConfigEntry;
+	_unitTypes = (getMissionConfig "RedFrameworkConfig" >> "combatPatrol_SpawnGarrison" >> "unitTypes") call BIS_fnc_returnConfigEntry;
 };
 
 if (isNil "_ramdomizeDistance") then {
-	_ramdomizeDistance = (getMissionConfig "RedFrameworkConfig" >> "combatPatrol_SpawnGarnisons" >> "ramdomizeDistance") call BIS_fnc_returnConfigEntry;
+	_ramdomizeDistance = (getMissionConfig "RedFrameworkConfig" >> "combatPatrol_SpawnGarrison" >> "ramdomizeDistance") call BIS_fnc_returnConfigEntry;
 };
 
 _allSpawnedGroup = [];

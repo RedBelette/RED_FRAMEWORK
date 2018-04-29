@@ -1,9 +1,9 @@
-name = "RedFramework v0.0.4 (Alpha)";
-description = "RF - Version 0.0.4";
+name = "RedFramework v1.0.0";
+description = "RF - Version 1.0.0";
 logo = "FRAMEWORK5.paa";
 logoOver = "FRAMEWORK5.paa";
 overviewPicture = "FRAMEWORK5.paa";
 tooltip = "RF";
 tooltipOwned = "RF Owned";
-overview = "A collection of function and configuration for quick mission editing.";
+overview = "A collection of functions and configuration for quick mission editing.";
 author = "RedBelette";

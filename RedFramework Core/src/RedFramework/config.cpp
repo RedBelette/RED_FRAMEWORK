@@ -94,6 +94,11 @@ class CfgFunctions {
 			class scenarioTitle {};
 		}
 
+		class vehicle {
+			file = "\RedFramework\functions\vehicle";
+			class moveInCargo {};
+		}
+
 		class zeus {
 			file = "\RedFramework\functions\zeus"
 			class makeAllUnitsEditableForAllCurators {};

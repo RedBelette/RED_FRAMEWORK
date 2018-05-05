@@ -10,8 +10,8 @@
 * Example: [group player, _spawnPos, _landingPos] call RF_fnc_spawnByHeli;
 *
 * FR:
-* Utilisation: Créer un helicoptère et téléporte le groupe à l'intérieur à la position souhaité. 
-* Après l'attérissage l'hélicoptère dépose le groupe, retourne sur sa position de départ et disparait. 
+* Utilisation: Créer un helicoptère et téléporte le groupe à l'intérieur à la position souhaité.
+* Après l'attérissage l'hélicoptère dépose le groupe, retourne sur sa position de départ et disparait.
 * Exemple: [group player, _spawnPos, _landingPos] call RF_fnc_spawnByHeli;
 */
 params ["_group", "_spawnPos", "_landingPos", ["_heliClass", "B_Heli_Light_01_F"], ["_side", west], ["_crewPilot", "B_Helipilot_F"]];
@@ -24,19 +24,8 @@ _crewGroup = createGroup [_side, true];
 _pilot = _crewGroup createUnit [_crewPilot, getPos _heli, [], 0, "NONE"];
 _pilot moveInDriver _heli; // move in driver
 _pilot setSkill 1; // skill like a god and i hope better driver...
-
-// TODO: MoveInCargo can only be called for the local soldiers. Refactoring needed. 
-{
- _x moveInCargo _heli;
-} forEach units _group; // Move in cargo the group
-[[_group, _heli], { // Execute the same command on each client
-	_group = _this select 0;
-	_heli = _this select 1;
-	{
-	 _x moveInCargo _heli;
-	} forEach units _group;
-}] remoteExec ["bis_fnc_call", 0];
-
+// Move in cargo
+[_group, _heli] call RF_fnc_moveInCargo;
 // Add waypoint to the landing position
 _waypoint = _crewGroup addWaypoint [_landingPos, 0];
 // Unload groups

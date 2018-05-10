@@ -34,6 +34,11 @@ class CfgFunctions {
 			class sideDefendArea {};
 		};
 
+		class ambience {
+			file = "\RedFramework\functions\ambience";
+			class lightningBolt {};
+		};
+
 		class animation {
 			file = "\RedFramework\functions\animation";
 			class playMoveLoop {};
@@ -86,6 +91,12 @@ class CfgFunctions {
 			class spawnUnits {};
 		}
 
+		class spectator {
+			file = "\RedFramework\functions\spectator";
+			class spectator {};
+			class addSpectatorAction {};
+		}
+
 		class ui {
 			file = "\RedFramework\functions\ui";
 			class imageFullScreen {};
@@ -109,6 +120,11 @@ class CfgFunctions {
 			file = "\RedFramework\functions\layer"
 			class disableLayer {};
 			class enableLayer {};
+		};
+
+		class zSpawner {
+			file = "\RedFramework\functions\zombie"
+			class zSpawner {};
 		};
 	};
 };

@@ -68,6 +68,9 @@ class CfgFunctions {
 			class initFramework {
 				preInit = 1;
 			};
+			class missionCfg {
+				postInit = 1;
+			};
 			class loadingComplete {};
 		};
 

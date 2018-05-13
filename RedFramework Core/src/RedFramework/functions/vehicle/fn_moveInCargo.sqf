@@ -26,7 +26,7 @@ Params ["_group", "_vehicle"];
 		// Counter and max variables used to prevent infinite loop (ex: when no more place into vehicle)
 		_max = 1000;
 		_counter = 0;
-		while { counter < _max and vehicle _entityToMove != _veh} do
+		while { _counter < _max and vehicle _entityToMove != _veh} do
 		{
 			_entityToMove moveInCargo _vehicle;
 			_counter = _counter + 1;

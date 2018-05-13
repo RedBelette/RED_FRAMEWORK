@@ -1,5 +1,5 @@
-name = "RedFramework v1.0.4";
-description = "RF - Version 1.0.4";
+name = "RedFramework v1.0.5";
+description = "RF - Version 1.0.5";
 logo = "FRAMEWORK5.paa";
 logoOver = "FRAMEWORK5.paa";
 overviewPicture = "FRAMEWORK5.paa";

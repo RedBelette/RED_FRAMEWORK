@@ -14,23 +14,34 @@
 */
 Params ["_group", "_vehicle"];
 
-{
+// for solo
+if (isServer && hasInterface) then {
+	{
+		_x moveInCargo _vehicle;
+	} forEach units _group;
+};
 
-	// this scope is executed for solo player
-	_x moveInCargo _vehicle;
+// for MP
+if (isDedicated) then {
 
-	//this scope will be remote executed for all given players
-	[[_vehicle, _x],{
-		Params ["_vehicle","_entityToMove"];
+	// Share the reference of the vehicle
+	_handle = [_vehicle] spawn {
+		params ["_vehicle"];
+		RF_var_moveInCargo = _vehicle;
+		publicVariable "RF_var_moveInCargo";
+	};
+	waitUntil {scriptDone _handle};
 
-		// Counter and max variables used to prevent infinite loop (ex: when no more place into vehicle)
-		_max = 1000;
-		_counter = 0;
-		while { _counter < _max and vehicle _entityToMove != _veh} do
+	// Move
+	[_group, RF_var_moveInCargo] spawn {
+		params ["_group", "_vehicle"];
+		sleep 2;
 		{
-			_entityToMove moveInCargo _vehicle;
-			_counter = _counter + 1;
-		};
-
-	}] RemoteExec ["call", _x,true];
-} forEach units _group;
+			_entityToMove = _x;
+			[[_entityToMove, _vehicle], {
+				params ["_entityToMove", "_vehicle"];
+				_entityToMove moveInCargo _vehicle;
+			}] remoteExec ["call", _x];
+		} forEach units _group;
+	};
+};

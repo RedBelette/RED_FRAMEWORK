@@ -15,22 +15,22 @@
 * Example2: ["alive michel", {michel setDamage 1}] call RF_fnc_action
 */
 
-params ["_condition", "_job", ["_params", []]];
-
-// Accept stringcode with parameters
-if (typeName _job == "STRING") then {
-	_job = format["[thisTrigger getVariable 'params'] spawn {%1};", _job];
-};
+params ["_condition", "_job", ["_params", []], ["_remoteTarget", 0]];
 
 // Accept code with parameters
 if (typeName _job == "CODE") then {
 	_job = format["[thisTrigger getVariable 'params'] spawn %1;", str(_job)];
 };
 
-_trigger = createTrigger ["EmptyDetector", [0,0,0], false];
-_trigger setVariable ["params", _params];
-_trigger setTriggerActivation ["NONE", "PRESENT", false]; // The condition replace the basic trigger activation
-_trigger setTriggerStatements [_condition, _job, ""];
+_job = format ["
+	params ['_params'];
+	[
+		_params,
+		{
+		 params ['_params'];
+		 %1;
+		}
+	] remoteExec ['call', %2];
+	", _job, _remoteTarget];
 
-// The trigger is return if the user want make something more specific
-_trigger
+[_condition, _job, _params] call RF_fnc_action;

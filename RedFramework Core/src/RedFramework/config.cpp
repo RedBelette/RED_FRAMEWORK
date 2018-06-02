@@ -18,11 +18,14 @@ class CfgFunctions {
 		class actionMechanism {
 			file = "\RedFramework\functions\action_mechanism";
 			class action {};
+			class remoteAction {};
 			class actionRegistry {};
 			class addAction {};
 			class delayedAction {};
+			class remoteDelayedAction {};
 			class getAction {};
 			class repeatedAction {};
+			class remoteRepeatedAction {};
 			class runAction {};
 			class stopAction {};
 			class unregisterAction {};

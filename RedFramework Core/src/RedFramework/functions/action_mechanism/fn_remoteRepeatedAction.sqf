@@ -15,7 +15,7 @@
 * Example2: ["alive michel", {(_params select 0) setDamage 1}, [michel]] call RF_fnc_remoteAction
 */
 
-params ["_condition", "_job", "_time", ["_params", []], ["_remoteTarget", 0]];
+params ["_job", "_time", ["_params", []], ["_remoteTarget", 0]];
 
 // Accept code with parameters
 if (typeName _job == "CODE") then {
@@ -25,12 +25,14 @@ if (typeName _job == "CODE") then {
 _job = format ["
 	params ['_params'];
 	[
-		_params,
+		[_params],
 		{
 		 params ['_params'];
 		 %1;
 		}
 	] remoteExec ['call', %2];
 	", _job, _remoteTarget];
+
+diag_log ["repeated action", _job, _time, _params];
 
 [_job, _time, _params] call RF_fnc_repeatedAction;

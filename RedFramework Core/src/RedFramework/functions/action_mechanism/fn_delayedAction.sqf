@@ -28,6 +28,7 @@ if (typeName _job == "CODE") then {
 
 // The same that RF_fnc_action
 _trigger = createTrigger ["EmptyDetector", [0,0,0], false];
+_trigger setVariable ["params", _params];
 _trigger setTriggerActivation ["NONE", "PRESENT", false];
 _trigger setTriggerStatements [_condition, _job, ""];
 _trigger setTriggerTimeout [_time, _time, _time, false]; // With this instruction in more

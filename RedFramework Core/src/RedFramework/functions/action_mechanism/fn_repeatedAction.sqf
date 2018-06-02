@@ -27,6 +27,7 @@ if (typeName _job == "CODE") then {
 
 // The same that RF_fnc_delayedAction
 _trigger = createTrigger ["EmptyDetector", [0,0,0], false];
+_trigger setVariable ["params", _params];
 _trigger setTriggerActivation ["NONE", "PRESENT", true];
 _trigger setTriggerStatements ["!(triggerActivated thisTrigger)", _job, ""]; // With this instruction in more. This instruction create the loop
 _trigger setTriggerTimeout [_time, _time, _time, true];

@@ -25,7 +25,7 @@ if (typeName _job == "CODE") then {
 _job = format ["
 	params ['_params'];
 	[
-		_params,
+		[_params],
 		{
 		 params ['_params'];
 		 %1;

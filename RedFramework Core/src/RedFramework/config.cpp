@@ -117,19 +117,19 @@ class CfgFunctions {
 		}
 
 		class zeus {
-			file = "\RedFramework\functions\zeus"
+			file = "\RedFramework\functions\zeus";
 			class makeAllUnitsEditableForAllCurators {};
 			class makeObjectsEditableForAllCurators {};
 		};
 
 		class layer {
-			file = "\RedFramework\functions\layer"
+			file = "\RedFramework\functions\layer";
 			class disableLayer {};
 			class enableLayer {};
 		};
 
 		class zSpawner {
-			file = "\RedFramework\functions\zombie"
+			file = "\RedFramework\functions\zombie";
 			class zSpawner {};
 		};
 	};

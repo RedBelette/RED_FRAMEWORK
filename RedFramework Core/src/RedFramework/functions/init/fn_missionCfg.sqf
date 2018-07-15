@@ -22,10 +22,10 @@ diag_log ["RedFramework mission initialization"];
 _addItemEarPlugs = (getMissionConfig "RedFrameworkConfig" >> "missionCfg" >> "addItemEarplugs") call  BIS_fnc_returnConfigEntry;
 
 if (!(isNil "_addItemEarPlugs")) then {
-	if (_addItemEarPlugs == true) then {
+	if (_addItemEarPlugs isEqualTo "true") then {
 		{
-			_x addItem "ACE_EarPlugs";
-		} forEach playableUnits;
+			player addItem "ACE_EarPlugs";
+		} remoteExec ["call", 0, true];
 	};
 };
 
@@ -33,7 +33,7 @@ if (!(isNil "_addItemEarPlugs")) then {
 _putInEarplugs = (getMissionConfig "RedFrameworkConfig" >> "missionCfg" >> "putInEarplugs") call  BIS_fnc_returnConfigEntry;
 
 if (!(isNil "_putInEarplugs")) then {
-	if (_putInEarplugs == "true") then {
+	if (_putInEarplugs isEqualTo "true") then {
 		{
 			if ("ACE_EarPlugs" in items player) then {
 				[player] call ace_hearing_fnc_putInEarPlugs;
@@ -46,7 +46,7 @@ if (!(isNil "_putInEarplugs")) then {
 _putSafeMode = (getMissionConfig "RedFrameworkConfig" >> "missionCfg" >> "putSafeMode") call  BIS_fnc_returnConfigEntry;
 
 if (!(isNil "_putSafeMode")) then {
-	if (_putSafeMode == "true") then {
+	if (_putSafeMode isEqualTo "true") then {
 		{
 			if (currentWeapon player != "") then {
 				[player, currentWeapon player, currentMuzzle player] call ace_safemode_fnc_lockSafety;

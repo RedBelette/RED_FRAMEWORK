@@ -14,34 +14,24 @@
 */
 Params ["_group", "_vehicle"];
 
-// for solo
-if (isServer && hasInterface) then {
-	{
-		_x moveInCargo _vehicle;
-	} forEach units _group;
+diag_log ["enter moveInCargo", _group, _vehicle];
+
+[_vehicle, _group] spawn {
+	params["_vehicle", "_group"];
+	
+	_vehicleOwner = owner _vehicle;
+	_vehicle setOwner 2;
+	{    
+		if (local _x) then { 
+			_x moveInCargo _vehicle; 
+		} else { 
+			_owner = owner _x; 
+			_x setOwner 2; 
+			waitUntil {local _x}; 
+			_x moveInCargo _vehicle; 
+			_x setOwner _owner; 
+		}; 
+	} forEach units _group; 
+	_vehicle setOwner _vehicleOwner;
 };
 
-// for MP
-if (isDedicated) then {
-
-	// Share the reference of the vehicle
-	_handle = [_vehicle] spawn {
-		params ["_vehicle"];
-		RF_var_moveInCargo = _vehicle;
-		publicVariable "RF_var_moveInCargo";
-	};
-	waitUntil {scriptDone _handle};
-
-	// Move
-	[_group, RF_var_moveInCargo] spawn {
-		params ["_group", "_vehicle"];
-		sleep 2;
-		{
-			_entityToMove = _x;
-			[[_entityToMove, _vehicle], {
-				params ["_entityToMove", "_vehicle"];
-				_entityToMove moveInCargo _vehicle;
-			}] remoteExec ["call", _x];
-		} forEach units _group;
-	};
-};
